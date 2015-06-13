@@ -225,14 +225,16 @@ h1.sec-title   { font-size:2.2em;
 #about  { background:$main-white;
           padding-bottom:50px;
 
-          .img-circle {
-  border-radius: 50%;
-  width: 125px;
-  height: 125px;
-  float: left;
-  margin: 11px 12px;
-  border:2px solid $sec-color;
-}
+          #mePhoto { background:url('../images/wesleypic.jpg') no-repeat -0.6em -1.2em;
+                     width: 190px;
+                     height: 190px;
+                     border-radius: 50%;
+                     float: left;
+                     border:2px solid $sec-color;
+                     margin: 11px 12px;
+
+          }
+
 
    #social {
 
