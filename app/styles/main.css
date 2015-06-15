@@ -4467,6 +4467,13 @@ h1.sec-title {
   text-shadow: 0 1px 0 #999;
   letter-spacing: 1px; }
 
+.btn-work {
+  display: inline;
+  background: #37455e;
+  color: #fff;
+  border: 1px solid #76940a;
+  cursor: none; }
+
 .row {
   background: #fff; }
 
@@ -4629,11 +4636,11 @@ h1.sec-title {
   #work ul {
     list-style: none;
     float: left;
-    margin-right: 8px;
+    margin-right: -3px;
     margin-top: -5px;
     position: relative;
     top: -3px;
-    left: -28px; }
+    left: -40px; }
   #work li {
     width: 16px;
     height: 16px;
@@ -4670,7 +4677,7 @@ h1.sec-title {
     top: -22px;
     left: -29px; }
   #work p > a {
-    color: #333;
+    color: #fff;
     font-size: 12px;
     line-height: 1.5em;
     width: 100%;

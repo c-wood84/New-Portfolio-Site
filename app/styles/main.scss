@@ -26,6 +26,13 @@ $font-serif:georgia, serif;
 @mixin social-icon-hover { background-position:0px -45px;
 }
 
+@mixin work-Button { display:inline;
+                    background:$sec-color;
+                    color: $main-white;
+                    border:1px solid $main-color;
+                    cursor:;
+}
+
 // @mixin ends
 
 
@@ -53,6 +60,11 @@ h1.sec-title   { font-size:2.2em;
                  letter-spacing: 1px;
                  // margin: 17px 0 7px 0;
 }
+
+
+
+.btn-work  { @include work-Button;}
+
 
  .row { background:#fff;
 
@@ -261,45 +273,45 @@ h1.sec-title   { font-size:2.2em;
             padding:0 0 5px;
         }
 
-   ul  { list-style: none;
-         float: left;
-         margin-right: 8px;
-         margin-top: -5px;
-         position: relative;
-         top: -3px;
-         left: -28px;
-        }
+
+
+        ul  { list-style: none;
+              float: left;
+              margin-right: -3px;
+              margin-top: -5px;
+              position: relative;
+              top: -3px;
+              left: -40px;
+            }
 
         li { width: 16px;
              height: 16px;
              display: inline;
              margin: 0 2px;
-
-        }
+            }
 
   a.workImg { display:block;
-          background:$main-white;
-          margin-bottom: 10px;
-          padding:5px 7px;
-          box-shadow:rgba(0, 0, 0, 0.148438) 0 1px 2px;
-          -webkit-box-shadow: rgba(0, 0, 0, 0.148438) 0 1px 2px;
-          position: relative;
-         z-index: 1;
+              background:$main-white;
+              margin-bottom: 10px;
+              padding:5px 7px;
+              box-shadow:rgba(0, 0, 0, 0.148438) 0 1px 2px;
+              -webkit-box-shadow: rgba(0, 0, 0, 0.148438) 0 1px 2px;
+              position: relative;
+              z-index: 1;
 
           img  { max-width:100%;
-         width: 100%;
-         border:1px solid #ccc;
-         opacity: .5;
-         transition: opacity .5s ease-out;
-         -moz-transition: opacity .5s ease-out;
-         -webkit-transition: opacity .5s ease-out;
-         -o-transition: opacity .5s ease-out;
-}
+                 width: 100%;
+                 border:1px solid #ccc;
+                 opacity: .5;
+                 transition: opacity .5s ease-out;
+                 -moz-transition: opacity .5s ease-out;
+                 -webkit-transition: opacity .5s ease-out;
+                 -o-transition: opacity .5s ease-out;
+                }
 
 
 
-  img:hover   {opacity: 1;
-          }
+  img:hover   {opacity: 1; }
 
   }
 
@@ -314,13 +326,15 @@ h1.sec-title   { font-size:2.2em;
            left: -29px;
          }
 
-  p > a { color:$font-grey;
+  p > a { color:$main-white;
           font-size: 12px;
           line-height: 1.5em;
           width: 100%;
           position: relative;
           top: -15px;
-        }
+         }
+
+         
 }
 
 #about  { background:$main-white;
@@ -333,8 +347,7 @@ h1.sec-title   { font-size:2.2em;
                      float: left;
                      border:2px solid $sec-color;
                      margin: 11px 12px;
-
-          }
+                    }
 
 
    #social {
