@@ -1,6 +1,6 @@
-// $('button').click(function() {
-//   $(this).toggleClass('expanded').siblings('div').slideToggle();
-// });
+$('.minus').click(function() {
+  $(this).toggleClass('expanded').siblings('div').slideToggle();
+});
 
 
 // Activate ToolTip
