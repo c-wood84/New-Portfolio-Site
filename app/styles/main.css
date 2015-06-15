@@ -4472,7 +4472,7 @@ h1.sec-title {
   background: #37455e;
   color: #fff;
   border: 1px solid #76940a;
-  cursor: none; }
+  cursor: default; }
 
 .row {
   background: #fff; }
