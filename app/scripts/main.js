@@ -1,4 +1,4 @@
-$('.minus').click(function() {
+$('button.minus').click(function() {
   $(this).toggleClass('expanded').siblings('div').slideToggle();
 });
 
