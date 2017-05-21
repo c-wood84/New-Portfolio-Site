@@ -1,122 +1,158 @@
-'use strict';
-// generated on 2015-04-09 using generator-gulp-bootstrap 0.0.4
+// ////////////////////////////////////////////////
+//
+// EDIT CONFIG OBJECT BELOW !!!
+// 
+// jsConcatFiles => list of javascript files (in order) to concatenate
+// buildFilesFoldersRemove => list of files to remove when running final build
+// // //////////////////////////////////////////////
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-var gutil = require('gulp-util');
+var config = {
+	jsConcatFiles: [
+		'./app/js/module1.js', 
+		'./app/js/main.js'
+	], 
+	buildFilesFoldersRemove:[
+		'build/scss/', 
+		'build/js/!(*.min.js)',
+		'build/bower.json',
+		'build/bower_components/',
+		'build/maps/'
+	]
+};
 
-// load plugins
-var $ = require('gulp-load-plugins')();
 
-gulp.task('styles', function () {
-    return gulp.src('app/styles/main.scss')
-        .pipe($.sass({errLogToConsole: true}))
-        .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('app/styles'))
-        .pipe(reload({stream:true}))
-        .pipe($.size())
-        .pipe($.notify("Compilation complete."));;
+// ////////////////////////////////////////////////
+// Required taskes
+// gulp build
+// bulp build:serve
+// // /////////////////////////////////////////////
+
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
+	autoprefixer = require('gulp-autoprefixer'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload,
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	del = require('del');
+
+
+// ////////////////////////////////////////////////
+// Log Errors
+// // /////////////////////////////////////////////
+
+function errorlog(err){
+	console.error(err.message);
+	this.emit('end');
+}
+
+
+// ////////////////////////////////////////////////
+// Scripts Tasks
+// ///////////////////////////////////////////////
+
+gulp.task('scripts', function() {
+  return gulp.src(config.jsConcatFiles)
+	.pipe(sourcemaps.init())
+		.pipe(concat('temp.js'))
+		.pipe(uglify())
+		.on('error', errorlog)
+		.pipe(rename('app.min.js'))		
+    .pipe(sourcemaps.write('../maps'))
+    .pipe(gulp.dest('./app/js/'))
+
+    .pipe(reload({stream:true}));
 });
 
-gulp.task('scripts', function () {
-    return gulp.src('app/scripts/**/*.js')
-        .pipe($.jshint())
-        .pipe($.jshint.reporter(require('jshint-stylish')))
-        .pipe($.size());
+
+// ////////////////////////////////////////////////
+// Styles Tasks
+// ///////////////////////////////////////////////
+
+gulp.task('styles', function() {
+	gulp.src('app/scss/style.scss')
+		.pipe(sourcemaps.init())
+			.pipe(sass({outputStyle: 'compressed'}))
+			.on('error', errorlog)
+			.pipe(autoprefixer({
+	            browsers: ['last 3 versions'],
+	            cascade: false
+	        }))	
+		.pipe(sourcemaps.write('../maps'))
+		.pipe(gulp.dest('app/css'))
+		.pipe(reload({stream:true}));
 });
 
-gulp.task('html', ['styles', 'scripts'], function () {
-    var jsFilter = $.filter('**/*.js');
-    var cssFilter = $.filter('**/*.css');
 
-    return gulp.src('app/*.html')
-        .pipe($.useref.assets())
-        .pipe(jsFilter)
-        .pipe($.uglify())
-        .pipe(jsFilter.restore())
-        .pipe(cssFilter)
-        .pipe($.csso())
-        .pipe(cssFilter.restore())
-        .pipe($.useref.restore())
-        .pipe($.useref())
-        .pipe(gulp.dest('dist'))
-        .pipe($.size());
+// ////////////////////////////////////////////////
+// HTML Tasks
+// // /////////////////////////////////////////////
+
+gulp.task('html', function(){
+    gulp.src('app/**/*.html')
+    .pipe(reload({stream:true}));
 });
 
-gulp.task('images', function () {
-    return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
-            optimizationLevel: 3,
-            progressive: true,
-            interlaced: true
-        })))
-        .pipe(gulp.dest('dist/images'))
-        .pipe(reload({stream:true, once:true}))
-        .pipe($.size());
-});
 
-gulp.task('fonts', function () {
-    var streamqueue = require('streamqueue');
-    return streamqueue({objectMode: true},
-        $.bowerFiles(),
-        gulp.src('app/fonts/**/*')
-    )
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
-        .pipe($.flatten())
-        .pipe(gulp.dest('dist/fonts'))
-        .pipe($.size());
-});
+// ////////////////////////////////////////////////
+// Browser-Sync Tasks
+// // /////////////////////////////////////////////
 
-gulp.task('clean', function () {
-    return gulp.src(['app/styles/main.css', 'dist'], { read: false }).pipe($.clean());
-});
-
-gulp.task('build', ['html', 'images', 'fonts']);
-
-gulp.task('default', ['clean'], function () {
-    gulp.start('build');
-});
-
-gulp.task('serve', ['styles'], function () {
-    browserSync.init(null, {
+gulp.task('browser-sync', function() {
+    browserSync({
         server: {
-            baseDir: 'app',
-            directory: true
-        },
-        debugInfo: false,
-        open: false,
-        hostnameSuffix: ".xip.io"
-    }, function (err, bs) {
-        require('opn')(bs.options.url);
-        console.log('Started connect web server on ' + bs.options.url);
+            baseDir: "./app/"
+        }
     });
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// inject bower components
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-gulp.task('wiredep', function () {
-    var wiredep = require('wiredep').stream;
-    gulp.src('app/styles/*.scss')
-        .pipe(wiredep({
-            directory: 'app/bower_components'
-        }))
-        .pipe(gulp.dest('app/styles'));
-    gulp.src('app/*.html')
-        .pipe(wiredep({
-            directory: 'app/bower_components',
-            exclude: ['bootstrap-sass-official']
-        }))
-        .pipe(gulp.dest('app'));
+
+// task to run build server for testing final app
+gulp.task('build:serve', function() {
+    browserSync({
+        server: {
+            baseDir: "./build/"
+        }
+    });
 });
 
-gulp.task('watch', ['serve'], function () {
- 
-    // watch for changes
-    gulp.watch(['app/*.html'], reload);
- 
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
-    gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('bower.json', ['wiredep']);
+
+// ////////////////////////////////////////////////
+// Build Tasks
+// // /////////////////////////////////////////////
+
+// clean out all files and folders from build folder
+gulp.task('build:cleanfolder', function (cb) {
+	del([
+		'build/**'
+	], cb);
 });
+
+// task to create build directory of all files
+gulp.task('build:copy', ['build:cleanfolder'], function(){
+    return gulp.src('app/**/*/')
+    .pipe(gulp.dest('build/'));
+});
+
+// task to removed unwanted build files
+// list all files and directories here that you don't want included
+gulp.task('build:remove', ['build:copy'], function (cb) {
+	del(config.buildFilesFoldersRemove, cb);
+});
+
+gulp.task('build', ['build:copy', 'build:remove']);
+
+
+// ////////////////////////////////////////////////
+// Watch Tasks
+// // /////////////////////////////////////////////
+
+gulp.task ('watch', function(){
+	gulp.watch('app/scss/**/*.scss', ['styles']);
+	gulp.watch('app/js/**/*.js', ['scripts']);
+  	gulp.watch('app/**/*.html', ['html']);
+});
+
+
+gulp.task('default', ['scripts', 'styles', 'html', 'browser-sync', 'watch']);
