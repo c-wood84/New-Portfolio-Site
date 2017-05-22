@@ -1,7 +1,21 @@
 {
-  "name": "newsite",
-  "version": "0.0.0",
-  "dependencies": {},
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://c-wood84@github.com/c-wood84/portfolio-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c-wood84/portfolio-website/issues"
+  },
+  "homepage": "https://github.com/c-wood84/portfolio-website#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "del": "^2.2.2",
@@ -14,8 +28,5 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0"
-  },
-  "engines": {
-    "node": ">=0.10.0"
   }
 }

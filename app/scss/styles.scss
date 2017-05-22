@@ -1,39 +1,8 @@
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
-// endbower
+@import 'partials/_variables.scss';
+@import 'partials/_mixins.scss';
+@import 'partials/_general.scss';
+@import 'partials/_global.scss';  
 
-$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-$main-color:#76940a;
-$sec-color:#37455e;
-$main-grey:#d8d8d8;
-$light-grey:#f3f5f7;
-$main-white:#fff;
-$font-grey:#333;
-$font-sans:"Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-serif:georgia, serif;
-
-
-
-// @mixins
-@mixin social-icon-style { height: 43px;
-                           width: 43px;
-                           display: block;
-}
-
-@mixin social-icon-transition { transition: 0.3s ease-in-out;
-                                -moz-transition: 0.3s ease-in-out;
-                                -webkit-transition: 0.3s ease-in-out;
-}
-@mixin social-icon-hover { background-position:0px -45px;
-}
-
-@mixin work-Button { display:inline;
-                    background:$sec-color;
-                    color: $main-white;
-                    border:1px solid $main-color;
-                    cursor:default;
-}
-
-// @mixin ends
 
 
 .browsehappy {

@@ -1,0 +1,21 @@
+// @mixins
+@mixin social-icon-style { height: 43px;
+                           width: 43px;
+                           display: block;
+}
+
+@mixin social-icon-transition { transition: 0.3s ease-in-out;
+                                -moz-transition: 0.3s ease-in-out;
+                                -webkit-transition: 0.3s ease-in-out;
+}
+@mixin social-icon-hover { background-position:0px -45px;
+}
+
+@mixin work-Button { display:inline;
+                    background:$sec-color;
+                    color: $main-white;
+                    border:1px solid $main-color;
+                    cursor:default;
+}
+
+// @mixin ends

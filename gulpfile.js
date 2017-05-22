@@ -74,7 +74,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	gulp.src('app/scss/style.scss')
 		.pipe(sourcemaps.init())
-			.pipe(sass({outputStyle: 'compressed'}))
+			.pipe(sass({outputStyle: 'expanded'}))
 			.on('error', errorlog)
 			.pipe(autoprefixer({
 	            browsers: ['last 3 versions'],
