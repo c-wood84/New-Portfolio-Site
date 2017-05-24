@@ -111,22 +111,16 @@ blockquote {
   -moz-border-radius: 50%;
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #f3f5f7;
-  color: #000;
-  padding: 0.2em 0;
+/* ===== LAYOUT ==== */
+section {
+  padding: 50px 0;
 }
 
-/* Space out content a bit */
-body {
-  padding-top: 0px;
-  padding-bottom: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.sec-title {
+  text-align: left;
 }
 
-/* global style */
-h1.sec-title {
+.sec-title h1 {
   font-size: 2.2em;
   font-weight: 500;
   color: #76940a;
@@ -135,19 +129,8 @@ h1.sec-title {
   letter-spacing: 1px;
 }
 
-.btn-work {
-  display: inline;
-  background: #37455e;
-  color: #fff;
-  border: 1px solid #76940a;
-  cursor: default;
-}
-
-.row {
-  background: #fff;
-}
-
-#header {
+/* ==== HEADER ==== */
+header {
   background: #76940a;
   text-align: center;
   height: 280px;
@@ -157,7 +140,7 @@ h1.sec-title {
   z-index: 5;
 }
 
-#header h1 {
+header h1 {
   background: transparent;
   position: relative;
   top: -10px;
@@ -166,9 +149,10 @@ h1.sec-title {
   margin: 0 auto;
   width: 220px;
   height: 183px;
+  /* logo ends here */
 }
 
-#header h1 #logo img:hover {
+header h1 #logo img:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
   -moz-opacity: 0.8;
@@ -176,7 +160,7 @@ h1.sec-title {
   opacity: 0.8;
 }
 
-#header h1 .info {
+header h1 .info {
   color: #fff;
   text-transform: uppercase;
   font-weight: 400;
@@ -184,12 +168,12 @@ h1.sec-title {
   letter-spacing: 2px;
 }
 
-#header h1 .info .logo-name {
+header h1 .info .logo-name {
   position: relative;
   top: -2px;
 }
 
-#header #navDesktop {
+header #navDesktop {
   border-top: 1px solid #d8d8d8;
   border-bottom: 1px solid #d8d8d8;
   width: 700px;
@@ -199,7 +183,7 @@ h1.sec-title {
   height: 45px;
 }
 
-#header #navDesktop ul {
+header #navDesktop ul {
   z-index: 1;
   width: 700px;
   margin-top: 13px;
@@ -214,20 +198,20 @@ h1.sec-title {
   letter-spacing: 1px;
 }
 
-#header #navDesktop li {
+header #navDesktop li {
   display: inline-block;
 }
 
-#header #navDesktop ul > li > a {
+header #navDesktop ul > li a {
   color: #fff;
   text-decoration: none;
 }
 
-#header #navDesktop ul > li:hover {
+header #navDesktop ul li:hover {
   border-bottom: 2px solid #37455e;
 }
 
-#header li a {
+header li a {
   text-shadow: 0 1px 0 #999;
   padding: 7px 20px 5px;
   color: #555;
@@ -235,33 +219,33 @@ h1.sec-title {
   margin-top: 10px;
 }
 
-#header li.spacer {
+header li.spacer {
   width: 220px;
 }
 
-#header #navMobile {
+header #navMobile {
   display: none;
   position: fixed;
   width: 100%;
   top: 0;
 }
 
-#header #navMobile div {
+header #navMobile div {
   display: none;
 }
 
-#header #navMobile button {
+header #navMobile button {
   display: inline-block;
   margin: 0 1em;
   border: none;
   background: none;
 }
 
-#header #navMobile button span {
+header #navMobile button span {
   display: block;
 }
 
-#header #navMobile .lines {
+header #navMobile button .lines {
   display: inline-block;
   width: 4rem;
   height: 0.57143rem;
@@ -273,7 +257,7 @@ h1.sec-title {
   position: relative;
 }
 
-#header #navMobile .lines:before, #header #navMobile .lines:after {
+header #navMobile button .lines:before, header #navMobile button .lines:after {
   display: inline-block;
   width: 4rem;
   height: 0.57143rem;
@@ -289,17 +273,17 @@ h1.sec-title {
   transform-origin: 0.28571rem center;
 }
 
-#header #navMobile .lines:before {
+header #navMobile button .lines:before {
   top: 1rem;
   border-radius: 0.57143rem;
 }
 
-#header #navMobile .lines:after {
+header #navMobile button .lines:after {
   top: -1rem;
   border-radius: 0.57143rem;
 }
 
-#header #navMobile .lines-button {
+header #navMobile button .lines-button {
   position: absolute;
   top: 4px;
   right: -10px;
@@ -311,7 +295,7 @@ h1.sec-title {
   transition: .4s;
 }
 
-#header #navMobile .expanded {
+header #navMobile button .expanded {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
@@ -319,16 +303,16 @@ h1.sec-title {
   padding: 1.5rem 1rem;
 }
 
-#header #navMobile a {
+header #navMobile button a {
   display: block;
 }
 
-#header #navMobile ul > li > a {
+header #navMobile button ul > li > a {
   color: #fff;
   text-decoration: none;
 }
 
-#header #navMobile ul {
+header #navMobile button ul {
   width: 100%;
   list-style: none;
   font-size: 18px;
@@ -340,7 +324,7 @@ h1.sec-title {
   background: #76940a;
 }
 
-#header #navMobile li {
+header #navMobile button li {
   display: inline-block;
   width: 100%;
   height: 35px;
@@ -348,36 +332,29 @@ h1.sec-title {
   border-top: 2px solid #d8d8d8;
 }
 
-#header #navMobile li a {
+header #navMobile button li a {
   padding: 0px 20px 5px;
   color: #555;
   opacity: 0.75;
   margin: 0px;
 }
 
-#header #navMobile li.bottom {
+header #navMobile button li.bottom {
   border-bottom: 2px solid #d8d8d8;
 }
 
+/* ==== WORK ==== */
 #work {
   background: #f3f5f7;
-}
-
-#work article {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 1% 30px;
-  padding: 0 0 5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #work ul {
   list-style: none;
   float: left;
-  margin-right: -3px;
   margin-top: -5px;
   position: relative;
   top: -3px;
-  left: -40px;
 }
 
 #work li {
@@ -418,11 +395,10 @@ h1.sec-title {
   font-weight: 500;
   color: #37455e;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 0 0 7px;
   width: 28%;
   position: relative;
   top: -22px;
-  left: -29px;
 }
 
 #work p > a {
@@ -434,6 +410,7 @@ h1.sec-title {
   top: -15px;
 }
 
+/* ==== ABOUT ==== */
 #about {
   background: #fff;
   padding-bottom: 50px;
@@ -578,7 +555,7 @@ h1.sec-title {
   -webkit-transition: 0.3s ease-in-out;
 }
 
-/* Contact Area */
+/* ==== CONTACT ==== */
 #contact {
   background: #f3f5f7;
   padding-bottom: 40px;
@@ -627,73 +604,13 @@ h1.sec-title {
   list-style: none;
 }
 
-.footer {
+/* ===== FOOTER ==== */
+footer {
   padding: 19px 0;
   color: #37455e;
   border-top: 1px solid #37455e;
   background: #fff;
   width: 100%;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (max-width: 800px) {
-  #header {
-    background: #76940a;
-    text-align: center;
-    height: 250px;
-    width: 100%;
-    border-bottom: 3px solid #fff;
-    position: relative;
-    z-index: 5;
-  }
-  #header h1 {
-    background: transparent;
-    position: relative;
-    top: -20;
-    right: 0;
-  }
-  #header #navDesktop {
-    display: none;
-  }
-  #header #navMobile {
-    display: block;
-  }
-  #work {
-    background: #f3f5f7;
-  }
-  #work article {
-    width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 1% 30px;
-    padding: 0 0 5px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 1100px;
-  }
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .col-lg-4 {
-    width: 29.33333% !important;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .col-md-4 {
-    width: 29.33333% !important;
-  }
 }
 
 /*# sourceMappingURL=../maps/style.css.map */
