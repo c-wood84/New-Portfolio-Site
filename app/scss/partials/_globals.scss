@@ -1,0 +1,93 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	@include sexy-text;
+	font-weight: $thick;
+	font-family: $font-heading;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 { font-size: 2.65rem;
+
+}
+
+h3 { font-size: 2.2rem;
+
+}
+
+h4 { font-size: 1.57rem;
+
+}
+
+img {
+	max-width: 100%;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+p.lead {
+	font-weight: $normal;
+}
+
+a {
+	color: $main-color;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	color: $main-color;
+}
+
+a:hover {
+	text-decoration: none;
+	color: $main-grey;
+}
+
+button, input, select, .btn, a.btn {
+	@include sexy-text;
+	color: #fff;
+}
+
+.btn {
+	font-weight: $thick;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.btn-work  { 
+	@include work-Button;
+}
+
+blockquote {
+	font-style: italic;
+	border: none;
+	font-size: 1.5686rem;
+	font-weight: $normal;
+	padding: 7px 15px;
+	margin: 0 15px;
+}
+
+
+.badge.social {
+	background: $light-grey;
+	font-size: 24px;
+	width: 35px;
+	height: 35px;
+	line-height: 37px;
+	color: $main-white;
+	@include circle;
+}

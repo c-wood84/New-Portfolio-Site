@@ -1,8 +1,114 @@
+/* SASS / Social Media Brand Colors */
 /* === General Styles === */
+/* Space out content a bit */
 body {
-  background: #fff;
+  padding-top: 0px;
+  padding-bottom: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-weight: bold;
+  font-family: georgia, serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.65rem;
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+h4 {
+  font-size: 1.57rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 0 0 15px;
+}
+
+p {
+  margin: 0 0 15px;
+}
+
+p.lead {
+  font-weight: normal;
+}
+
+a {
+  color: #76940a;
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #76940a;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #d8d8d8;
+}
+
+button, input, select, .btn, a.btn {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #fff;
+}
+
+.btn {
+  font-weight: bold;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-work {
+  display: inline;
+  background: #37455e;
+  color: #fff;
+  border: 1px solid #76940a;
+  cursor: default;
+}
+
+blockquote {
+  font-style: italic;
+  border: none;
+  font-size: 1.5686rem;
+  font-weight: normal;
+  padding: 7px 15px;
+  margin: 0 15px;
+}
+
+.badge.social {
+  background: #f3f5f7;
+  font-size: 24px;
+  width: 35px;
+  height: 35px;
+  line-height: 37px;
+  color: #fff;
+  padding: 0;
+  margin: 0 5px 20px 0;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 
 .browsehappy {

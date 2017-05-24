@@ -1,8 +1,9 @@
 /* === General Styles === */
 
-body { 
-	background: $main-white;
-	font-family: $font-sans;
-	font-style: normal;
+/* Space out content a bit */
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-family: $font-sans;
 }
 
